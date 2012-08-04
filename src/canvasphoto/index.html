@@ -1,0 +1,130 @@
+<!DOCTYPE html> 
+<html style="overflow: hidden;"> 
+<head> 
+  <meta charset="utf-8"> 
+  <title>Canvas Photo Demo</title> 
+    <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]--> 
+    <style> 
+    body   { font: 75% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif; }
+    canvas { background-color: transparent; border: 1px solid gray; top: 0; left: 0; position: absolute; }
+    canvas.resize-ne { cursor: ne-resize; }
+    canvas.resize-se { cursor: se-resize; }
+    canvas.resize-sw { cursor: sw-resize; }
+    canvas.resize-nw { cursor: nw-resize; }
+    canvas.move { cursor: move; }
+    canvas.default { cursor: default; }
+    img   { display: none; position: absolute; top: -1000; left: -1000; }
+    input   { margin-left: 20px; }
+    fieldset { width: 280px; float: left; }
+    .fieldset { width: 200px; float: left; }
+    #ft   { background-color: #eee; height: 70px; width: 99%; border-top: 1px solid #ccc; padding: 5px; position: absolute; top: 0; left: 0; }
+    #ft span { width: 100%; }
+  </style> 
+  <script src="utilities.js" type="text/javascript" charset="utf-8"></script> 
+  <script src="canvasElement.js" type="text/javascript" charset="utf-8"></script> 
+  <script src="canvasImg.js" type="text/javascript" charset="utf-8"></script> 
+  <script> 
+    var CanvasDemo = function() {
+      var YD = YAHOO.util.Dom;
+      var YE = YAHOO.util.Event;
+      var canvas;
+      var img = [];
+      return {
+        init: function() {
+          canvas = new Canvas.Element();
+          canvas.init('canvid1', { width: YD.getViewportWidth() - 5, height: YD.getViewportHeight() - 5 });      
+          img[img.length] = new Canvas.Img('img1', {});
+          img[img.length] = new Canvas.Img('img2', {});
+          img[img.length] = new Canvas.Img('img3', {});
+          img[img.length] = new Canvas.Img('bg', {});
+          
+          // @param array of images ToDo: individual images
+          canvas.setCanvasBackground(img[3]);
+          canvas.addImage(img[0]);
+          canvas.addImage(img[1]);
+          canvas.addImage(img[2]);
+          
+          this.initEvents();
+        },
+        initEvents: function() {
+          YE.on('togglebg','click', this.toggleBg, this, true);
+          YE.on('showcorners','click', this.showCorners, this, true);
+          YE.on('togglenone','click', this.toggleNone, this, true);
+          YE.on('toggleborders','click', this.toggleBorders, this, true);
+          YE.on('togglepolaroid','click', this.togglePolaroid, this, true);
+          YE.on('pngbutton','click', function() { this.convertTo('png') }, this, true);
+          YE.on('jpegbutton','click', function() { this.convertTo('jpeg') }, this, true);
+        },
+        switchBg: function() {
+          canvas.fillBackground = (canvas.fillBackground) ? false : true;              
+          canvas.renderAll();
+        },
+
+        showCorners: function() {
+          this.cornersvisible = (this.cornersvisible) ? false : true;
+          this.modifyImages(function(image) {
+            image.setCornersVisibility(this.cornersvisible);
+          });
+        },
+        toggleNone: function() {
+          this.modifyImages(function(image) {
+            image.setBorderVisibility(false);
+          });
+        },
+        toggleBorders: function() {
+          this.modifyImages(function(image) {
+            image.setBorderVisibility(true);
+          });
+        },
+        togglePolaroid: function() {
+          this.modifyImages(function(image) {
+            image.setPolaroidVisibility(true);
+          });
+        },
+        modifyImages: function(fn) {
+          for (var i = 0, l = canvas._aImages.length; i < l; i += 1) {
+            fn.call(this, canvas._aImages[i]);
+          }
+          canvas.renderAll();
+        },
+        convertTo: function(format) {
+          var imgData = canvas.canvasTo(format);
+          window.open(imgData, "_blank");
+        },
+        whatever: function(e, o) {
+          // console.log(e);
+          // console.log(o);
+        }
+      }
+    }();
+    
+    
+    
+    
+    YAHOO.util.Event.on(window, 'load', CanvasDemo.init, CanvasDemo, true);
+  </script> 
+</head> 
+<body id="canvasdemo"> 
+  <canvas id="canvid1"></canvas> 
+  
+  <img id="img1" src="7.jpg" /> 
+  <img id="img2" src="8.jpg" /> 
+  <img id="img3" src="9.jpg" /> 
+  <img id="bg" src="bg.jpg" /> 
+  
+  <div id="ft"> 
+    <div class="fieldset">
+      <input type="button" id="jpegbutton" value="Export to JPEG" />
+      <input type="button" id="pngbutton" value="Export to PNG (heavy)" />
+    </div>    
+    <fieldset> 
+      <legend>Photo</legend> 
+      <span><input type="radio" name="some_name" value="" id="togglenone" /> <label for="togglenone">None</label></span> 
+      <span><input type="radio" name="some_name" value="" id="toggleborders" /> <label for="toggleborders">Simple</label></span> 
+      <span><input type="radio" name="some_name" value="" id="togglepolaroid" /> <label for="togglepolaroid">Polaroid&trade;</label></span> 
+    </fieldset> 
+    <span><input type="checkbox" name="some_name" value="" id="showcorners" /> <label for="showcorners">Show corners</label></span> 
+  </div> 
+ 
+</body> 
+</html>

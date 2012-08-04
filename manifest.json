@@ -1,0 +1,22 @@
+{
+  "name": "HTML5 Presentation",
+  "description": "An interactive slide deck that lets you play with the features of HTML5.",
+  "version": "1.0.0",
+  "icons": {
+    "16": "src/icons/logo_16.png",
+    "32": "src/icons/logo_32.png",
+    "48": "src/icons/logo_48.png",
+    "128": "src/icons/logo_128.png"
+  },
+  "app": {
+    "urls": [
+      "*://slides.html5rocks.com/"
+    ],
+    "launch": {
+      "web_url": "http://slides.html5rocks.com"
+    }
+  },
+  "permissions": [
+    "unlimitedStorage"
+  ]
+}

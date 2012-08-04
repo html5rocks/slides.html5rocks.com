@@ -1,0 +1,30 @@
+.presentation {
+  background: #778;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#01386b));
+  background-image: -webkit-linear-gradient(top, #fff, #01386b);
+  background-image:    -moz-linear-gradient(top, #fff, #01386b);
+  background-image:      -o-linear-gradient(top, #fff, #01386b);
+  background-image:         linear-gradient(top, #fff, #01386b);
+}
+.slide {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 2px solid #aaa;
+  -webkit-transition: margin 0.25s ease-in-out;
+  -moz-transition: margin 0.25s ease-in-out;
+  -o-transition: margin 0.25s ease-in-out;
+  transition: margin 0.25s ease-in-out;
+}
+header {
+  color: #0055ab;
+}
+pre {
+  font-family: 'Inconsolata', Courier;
+  border-radius: 10px;
+  background: rgba(255, 150, 60, 0.08);
+  border: 2px solid rgba(255, 200, 0, 0.3);
+}
+.sidebar {
+  background-color: #F8F8F8;
+  border-right: 5px solid #AAA;
+}

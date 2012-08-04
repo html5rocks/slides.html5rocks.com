@@ -1,0 +1,37 @@
+body {
+  font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+.presentation {
+  background: #778;
+}
+.slide {
+  background: #eee;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#bbd));
+  background-image: -webkit-linear-gradient(top, #fff, #bbd);
+  background-image:    -moz-linear-gradient(top, #fff, #bbd);
+  background-image:      -o-linear-gradient(top, #fff, #bbd);
+  background-image:         linear-gradient(top, #fff, #bbd);
+  border-radius: 10px;
+}
+.slide:nth-child(even) {
+  border-radius: 20px 0;
+}
+.slide:nth-child(odd) {
+  border-radius: 0 20px;
+}
+header, section, footer, .css, .js, .html {
+  font-family: "Droid Sans", Arial;
+}
+header {
+  color: black;
+}
+pre {
+  font-family: "Droid Sans Mono", Courier;
+  background: rgba(255, 0, 0, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+}
+.sidebar {
+  background-color: #EEE;
+  border-right: 5px solid #CCD;
+}

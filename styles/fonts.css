@@ -1,0 +1,27 @@
+/* Fonts */
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/src/fonts/yanone/YanoneKaffeesatz-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/src/fonts/inconsolata/Inconsolata.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'JunctionRegular';
+  src: url('/src/fonts/junction02/junction02-webfont.eot');
+  src: local('?'), url('/src/fonts/junction02/junction02-webfont.woff') format('woff'), url('/src/fonts/junction02/junction02-webfont.ttf') format('truetype'), url('/src/fonts/junction02/junction02-webfont.svg#webfontwzJOjWvv') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LeagueGothicRegular';
+  src: url('/src/fonts/leaguegothic/leaguegothic-webfont.eot');
+  src: local('?'), url('/src/fonts/leaguegothic/leaguegothic-webfont.woff') format('woff'), url('/src/fonts/leaguegothic/leaguegothic-webfont.ttf') format('truetype'), url('/src/fonts/leaguegothic/leaguegothic-webfont.svg#webfontWgfhmMGx') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

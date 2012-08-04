@@ -1,0 +1,38 @@
+.presentation {
+  background: #654;
+}
+.slide {
+  background: #eee;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcb));
+  background-image: -webkit-linear-gradient(top, #fff, #dcb);
+  background-image:    -moz-linear-gradient(top, #fff, #dcb);
+  background-image:      -o-linear-gradient(top, #fff, #dcb);
+  background-image:         linear-gradient(top, #fff, #dcb);
+  border-radius: 10px;
+  -webkit-transition: margin 0.25s ease-in-out;
+  -moz-transition: margin 0.25s ease-in-out;
+  -o-transition: margin 0.25s ease-in-out;
+  transition: margin 0.25s ease-in-out;
+  -webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, .2);
+}
+.slide:nth-child(even) {
+  border-radius: 20px 0;
+}
+.slide:nth-child(odd) {
+  border-radius: 0 20px;
+}
+header {
+  color: black;
+  text-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+}
+pre {
+  font-family: 'Droid Sans Mono', Courier;
+  letter-spacing: 1px;
+  background: rgba(255, 64, 0, 0.05);
+  border: 1px solid rgba(255, 64, 0, 0.2);
+  border-radius: 8px;
+}
+.sidebar {
+  background-color: #EFE7DF;
+  border-right: 5px solid #987;
+}

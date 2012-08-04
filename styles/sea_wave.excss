@@ -1,0 +1,26 @@
+.presentation {
+  @mixin bgGradient(#fff, #01386b, #778);
+}
+
+.slide {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 2px solid #aaa;
+  @mixin transitionSingle(margin, 0.25s, ease-in-out);
+}
+
+header {
+  color: #0055ab;
+}
+
+pre {
+  font-family: 'Inconsolata', Courier;
+  border-radius: 10px;
+  background: rgba(255, 150, 60, 0.08);
+  border: 2px solid rgba(255, 200, 0, 0.3);
+}
+
+.sidebar {
+  background-color: #F8F8F8;
+  border-right: 5px solid #AAA;
+}

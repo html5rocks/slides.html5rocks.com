@@ -1,0 +1,68 @@
+application: html5slides
+version: redesign
+runtime: python
+api_version: 1
+
+default_expiration: "30d"
+
+handlers:
+
+# Server appropriate mimetype for certain static content.
+- url: /(.*\.(appcache|manifest))
+  static_files: \1
+  mime_type: text/cache-manifest
+  upload: (.*\.(appcache|manifest))
+  expiration: "0s"
+
+- url: /(.*\.mp4)
+  static_files: \1
+  mime_type: video/mp4
+  upload: /(.*\.mp4)
+
+- url: /(.*\.webm)
+  static_files: \1
+  mime_type: video/webm
+  upload: /(.*\.webm)
+
+- url: /(.*\.(ogg|oga))
+  static_files: \1
+  mime_type: audio/ogg
+  upload: /(.*\.(ogg|oga))
+
+- url: /(.*\.ogv)
+  static_files: \1
+  mime_type: video/ogg
+  upload: /(.*\.ogv)
+
+- url: /(.*\.mp3)
+  static_files: \1
+  mime_type: audio/mpeg
+  upload: /(.*\.mp3)
+
+- url: /src/svg/(.*\.svg)
+  static_files: src/svg/\1
+  mime_type: image/svg+xml
+  upload: src/svg/(.*\.svg)
+  
+# Other static files.
+- url: /src
+  static_dir: src
+
+- url: /styles
+  static_dir: styles
+
+- url: /js
+  static_dir: js
+
+- url: /disclaimer.html
+  static_files: disclaimer.html
+  upload: disclaimer.html
+
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+
+- url: /
+  static_files: html5.html
+  upload: html5.html
+

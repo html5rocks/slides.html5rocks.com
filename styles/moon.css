@@ -1,0 +1,58 @@
+.presentation {
+  background: #000;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#444), to(#000));
+  background-image: -webkit-linear-gradient(top, #444, #000);
+  background-image:    -moz-linear-gradient(top, #444, #000);
+  background-image:      -o-linear-gradient(top, #444, #000);
+  background-image:         linear-gradient(top, #444, #000);
+}
+.slide {
+  background-color: #eee;
+  opacity: 0.35;
+  border-radius: 10px;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -webkit-transition-property: margin, -webkit-transform, opacity;
+  -webkit-transition-duration: 0.3s, 0.3s, 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-property: margin, -moz-transform, opacity;
+  -moz-transition-duration: 0.3s, 0.3s, 0.3s;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-property: margin, -o-transform, opacity;
+  -o-transition-duration: 0.3s, 0.3s, 0.3s;
+  -o-transition-timing-function: ease-in-out;
+}
+.slide:nth-child(even) {
+  border-radius: 10px 20px;
+}
+.slide:nth-child(odd) {
+  border-radius: 20px 10px;
+}
+.slide.current {
+  -webkit-transform: scale(1.0);
+  -moz-transform: scale(1.0);
+  -o-transform: scale(1.0);
+  transform: scale(1.0);
+  opacity: 1.0;
+}
+header {
+  color: #0054AB;
+}
+section, footer {
+  text-shadow: white 0px 1px 0px, rgba(0, 0, 0, 0.2) 0 2px 5px;
+}
+pre {
+  font: 'Inconsolata';
+  color: #000;
+  border-radius: 10px;
+  background: rgba(255, 204, 0, 0.05);
+  border: 2px solid rgba(255, 204, 0, 0.3);
+}
+.css, .js, .html {
+  font-family: 'Inconsolata';
+}
+.sidebar {
+  background-color: #F3F3F3;
+  border-right: 5px solid #987;
+}

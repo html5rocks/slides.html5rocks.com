@@ -1,0 +1,57 @@
+.presentation {
+  @mixin bgGradient(#444, #000, #000);
+}
+
+.slide {
+  background-color: #eee;
+  opacity: 0.35;
+  @mixin borderRadius(10px, 20px, 10px);
+
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+
+  -webkit-transition-property: margin, -webkit-transform, opacity;
+  -webkit-transition-duration: 0.3s, 0.3s, 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+
+  -moz-transition-property: margin, -moz-transform, opacity;
+  -moz-transition-duration: 0.3s, 0.3s, 0.3s;
+  -moz-transition-timing-function: ease-in-out;
+
+  -o-transition-property: margin, -o-transform, opacity;
+  -o-transition-duration: 0.3s, 0.3s, 0.3s;
+  -o-transition-timing-function: ease-in-out;
+
+  /* NOTE(slightlyoff): simpler animations for slower boxes */
+  /* @mixin transition(margin, 0.3s, ease-in-out;) */
+  &.current {
+    @mixin transformSingle(scale, 1.0);
+    opacity: 1.0;
+  }
+}
+
+header {
+  color: #0054AB;
+}
+
+section, footer {
+  text-shadow: white 0px 1px 0px, rgba(0, 0, 0, 0.2) 0 2px 5px;
+}
+
+pre {
+  font: 'Inconsolata';
+  color: #000;
+  border-radius: 10px;
+  background: rgba(255, 204, 0, 0.05);
+  border: 2px solid rgba(255, 204, 0, 0.3);
+}
+
+.css, .js, .html {
+  font-family: 'Inconsolata';
+}
+
+.sidebar {
+  background-color: #F3F3F3;
+  border-right: 5px solid #987;
+}

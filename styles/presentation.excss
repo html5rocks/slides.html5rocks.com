@@ -1,0 +1,326 @@
+/* Traits */
+@trait bgGradient(from, to, fallback) {
+  background: $fallback;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image:    -moz-linear-gradient(top, $from, $to);
+  background-image:      -o-linear-gradient(top, $from, $to);
+  background-image:         linear-gradient(top, $from, $to);
+}
+
+@trait borderRadius(leftTop, rightTop, default) {
+  border-radius: $default;
+  &:nth-child(even) {
+    border-radius: $leftTop $rightTop;
+  }
+  &:nth-child(odd) {
+    border-radius: $rightTop $leftTop;
+  }
+}
+
+@trait textShadow(color, hOffset, vOffset, blurRadius) {
+  text-shadow: $color $hOffset $vOffset $blurRadius;
+}
+
+@trait boxShadow(hOffset, vOffset, blurRadius, color) {
+  -webkit-box-shadow: $hOffset $vOffset $blurRadius $color;
+     -moz-box-shadow: $hOffset $vOffset $blurRadius $color;
+          box-shadow: $hOffset $vOffset $blurRadius $color;
+}
+
+@trait insetBoxShadow(hOffset, vOffset, blurRadius, color) {
+  -webkit-box-shadow: inset $hOffset $vOffset $blurRadius $color;
+     -moz-box-shadow: inset $hOffset $vOffset $blurRadius $color;
+          box-shadow: inset $hOffset $vOffset $blurRadius $color;
+}
+
+@trait textStroke(width, color) {
+  -webkit-text-stroke: $width $color;
+}
+
+@trait columnCount(num) {
+  -webkit-column-count: $num;
+     -moz-column-count: $num;
+          column-count: $num;
+}
+
+@trait columnComplex(count, gap, width, style, color) {
+  @mixin columnCount($count);
+  -webkit-column-gap: $gap;
+  -webkit-column-rule: $width $style $color;
+  -moz-column-gap: $gap;
+  -moz-column-rule: $width $style $color;
+  column-gap: $gap;
+  column-rule: $width $style $color;
+}
+
+@trait boxSizing(value) {
+  -webkit-box-sizing: $value;
+     -moz-box-sizing: $value;
+          box-sizing: $value;
+}
+
+@trait displayAsBox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+}
+
+@trait boxOrient(value) {
+  -webkit-box-orient: $value;
+     -moz-box-orient: $value;
+          box-orient: $value;
+}
+
+@trait boxFlex(value) {
+  -webkit-box-flex: $value;
+     -moz-box-flex: $value;
+          box-flex: $value;
+}
+
+@trait boxPack(value) {
+  -webkit-box-pack: $value;
+     -moz-box-pack: $value;
+          box-pack: $value;
+}
+
+@trait boxAlign(value) {
+  -webkit-box-align: $value;
+     -moz-box-align: $value;
+          box-align: $value;
+}
+
+@trait transitionSingle(prop, duration, timeFunc) {
+  -webkit-transition: $prop $duration $timeFunc;
+     -moz-transition: $prop $duration $timeFunc;
+       -o-transition: $prop $duration $timeFunc;
+          transition: $prop $duration $timeFunc;
+}
+
+@trait delayedTransition(prop, duration, timeFunc, delay) {
+  -webkit-transition: $prop $duration $timeFunc $delay;
+     -moz-transition: $prop $duration $timeFunc $delay;
+       -o-transition: $prop $duration $timeFunc $delay;
+          transition: $prop $duration $timeFunc $delay;
+}
+
+@trait transformTransition(duration, timeFunc) {
+  -webkit-transition: -webkit-transform $duration $timeFunc;
+     -moz-transition:    -moz-transform $duration $timeFunc;
+       -o-transition:      -o-transform $duration $timeFunc;
+          transition:         transform $duration $timeFunc;
+}
+
+@trait transformSingle(func, value) {
+  -webkit-transform: $func($value);
+     -moz-transform: $func($value);
+       -o-transform: $func($value);
+          transform: $func($value);
+}
+
+@trait transformTriple(func1, value1, func2, value2, func3, value3) {
+  -webkit-transform: $func1($value1) $func2($value2) $func3($value3);
+     -moz-transform: $func1($value1) $func2($value2) $func3($value3);
+       -o-transform: $func1($value1) $func2($value2) $func3($value3);
+          transform: $func1($value1) $func2($value2) $func3($value3);
+}
+
+/* Selectors */
+body, html, #flex-container, .slides {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+html {
+  overflow: scroll;
+}
+#flex-container {
+  @mixin displayAsBox;
+  @mixin boxPack(center);
+  @mixin boxAlign(center);
+  min-height: 704px;
+  min-width: 904px;
+}
+
+body {
+  overflow: hidden;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  background: #778;
+  min-height: 704px;
+  min-width: 904px;
+}
+
+.slides {
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  z-index: 8;
+  width: 900px;
+  height: 700px;
+}
+
+.presentation {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: block;
+  overflow: hidden;
+  background: #778;
+}
+
+.slides-old {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: none;
+  @mixin transfromTransition(1s, ease-in-out);
+}
+
+.slide {
+  width: 900px;
+  height: 700px;
+  background: #fff;
+  -webkit-transition: -webkit-transform 0.8s ease-in-out, opacity 1.2s ease-in-out;
+  -moz-transition: -moz-transform 0.8s ease-in-out, opacity 1.2s ease-in-out;
+  @mixin boxOrient(vertical);
+  @mixin boxSizing(content-box);
+  overflow: hidden;
+  display: none;
+  position: absolute;
+  border-radius: 10px;
+  background-color: #eee;
+  & p, textarea {
+    font-size: 20px;
+  }
+  & .counter {
+    color: #999999;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    display: block;
+    font-size: 12px;
+    width: 100%;
+  }
+  &:not(.transitionSlide) .counter:after {
+    content: '';
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    position: absolute;
+    bottom: 0;
+    right: 45px;
+    opacity: 0.25;
+  }
+  &.transitionSlide h2 {
+    margin: 0;
+    font-size: 40px;
+    line-height: 10px;
+  }
+  &.transitionSlide p {
+    margin: 0;
+  }
+  &.transitionSlide img {
+    opacity: 0.25;
+    width: 64px;
+    height: 64px;
+  }
+}
+
+#presentation-counter {
+  color: #ccc;
+  font-size: 100px;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.offline-storage .counter:after {
+  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Offline_Storage_32.png);
+}
+
+.device-access .counter:after{
+  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Device_Access_32.png);
+}
+
+.realtime-communication .counter:after {
+  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Connectivity_32.png);
+}
+
+.performance .counter:after {
+  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Performance_32.png);
+}
+
+.semantics .counter:after {
+  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Semantics_32.png);
+}
+
+.multimedia .counter:after {
+  background: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_MultiMedia_32.png);
+}
+
+.effects .counter:after {
+  background: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_3D_Effects_32.png);
+}
+
+.styling .counter:after {
+  background: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Styling_32.png);
+}
+
+.slide.far-past {
+  z-index: 8;
+  display: block;
+  opacity: 0;
+  @mixin transformTriple(translateZ, -600px, rotateY, -180deg, translateZ, 600px);
+}
+
+.slide.past {
+  z-index: 8;
+  visibility: visible;
+  display: block;
+  opacity: 0;
+  @mixin transformTriple(translateZ, -600px, rotateY, -90deg, translateZ, 600px);
+}
+
+.slide.current {
+  z-index: 9;
+  visibility: visible;
+  display: block;
+  opacity: 1;
+  @mixin transformTriple(translateZ, -600px, rotateY, 0deg, translateZ, 600px);
+}
+
+.slide.future {
+  z-index: 8;
+  visibility: visible;
+  display: block;  
+  opacity: 0;
+  @mixin transformTriple(translateZ, -600px, rotateY, 90deg, translateZ, 600px);
+}
+
+.slide.far-future {
+  z-index: 8;
+  display: block;
+  opacity: 0;
+  @mixin transformTriple(translateZ, -600px, rotateY, 180deg, translateZ, 600px);
+}
+
+body.three-d {
+  & .slides {
+    @mixin transformTriple(translateX, 50px, scale, 0.8, rotateY, 10deg);
+  }
+  & .presentation {
+    -webkit-tranform-style: preserve-3d;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+  }
+}

@@ -1,0 +1,26 @@
+.presentation {
+  background: #654;
+}
+
+.slide {
+  @mixin bgGradient(#fff, #dcb, #eee) borderRadius(20px, 0, 10px) transitionSingle(margin, 0.25s, ease-in-out);
+  -webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, .2);
+}
+
+header {
+  color: black;
+  @mixin textShadow(rgba(0, 0, 0, 0.3), 0, 1px, 3px);
+}
+
+pre {
+  font-family: 'Droid Sans Mono', Courier;
+  letter-spacing: 1px;  
+  background: rgba(255, 64, 0, 0.05);
+  border: 1px solid rgba(255, 64, 0, 0.2);    
+  border-radius: 8px;
+}
+
+.sidebar {
+  background-color: #EFE7DF;
+  border-right: 5px solid #987;
+}
