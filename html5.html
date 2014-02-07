@@ -37,8 +37,8 @@
   <body>
     <div id="flex-container">
     <nav id="helpers">
-      <button title="Previous slide" id="nav-prev" class="nav-prev">&#8701;</button> 
-      <button title="Jump to a random slide" id="slide-no">5</button> 
+      <button title="Previous slide" id="nav-prev" class="nav-prev">&#8701;</button>
+      <button title="Jump to a random slide" id="slide-no">5</button>
       <button title="Next slide" id="nav-next" class="nav-next">&#8702;</button>
       <menu>
         <button type="checkbox" data-command="toc" title="Table of Contents" class="toc">TOC</button>
@@ -53,6 +53,9 @@
         <div class="slide" id="landing-slide">
           <section class="middle">
             <p>This presentation is an HTML5 website</p>
+            <div update>This deck was last updated mid-2011. While the basics of HTML5 remain the same,
+many newer APIs are available, and a few APIs have changed during the standardization process.
+See <a href="http://html5rocks.com">HTML5 Rocks</a> for up-to-date information. <small>~February 2014</small></div>
             <p>Press <span id="left-init-key" class="key">&rarr;</span> key to advance.</p>
             <p id="disclaimer-message">Having issues seeing the presentation? Read the <a href="disclaimer.html">disclaimer</a></p>
           </section>
@@ -60,7 +63,7 @@
             <section>
               Welcome! (This field is for speaker notes and commentary.)
             </section>
-          </aside> 
+          </aside>
         </div>
 
         <div class="slide" id="controls-slide">
@@ -195,7 +198,7 @@ textarea.value = window.<b>localStorage</b>.<b>getItem</b>('value');
                   }
                 }
 
-              })();  
+              })();
             </script>
           </section>
         </div>
@@ -224,7 +227,7 @@ db.<b>transaction</b>(function(tx) {
               var log = document.getElementById('db-log');
               if (window.openDatabase) {
                 db = openDatabase("DBTest", "1.0", "HTML5 Database API example", 200000);
-                showRecords();  
+                showRecords();
               }
               document.getElementById('db-results').addEventListener('click', function(e) { e.preventDefault(); }, false);
 
@@ -239,7 +242,7 @@ db.<b>transaction</b>(function(tx) {
                   tx.executeSql("SELECT * FROM Table1Test", [], function(tx, result) {
                     for (var i = 0, item = null; i < result.rows.length; i++) {
                       item = result.rows.item(i);
-                      document.getElementById('db-results').innerHTML += 
+                      document.getElementById('db-results').innerHTML +=
                           '<li><span contenteditable="true" onkeyup="webSqlSample.updateRecord('+item['id']+', this)">'+
                           item['text'] + '</span> <a href="#" onclick="webSqlSample.deleteRecord('+item['id']+')">[Delete]</a></li>';
                     }
@@ -263,7 +266,7 @@ db.<b>transaction</b>(function(tx) {
                       function(tx, result) {
                         log.innerHTML = '';
                         showRecords();
-                      }, 
+                      },
                       onError);
                 });
               }
@@ -277,7 +280,7 @@ db.<b>transaction</b>(function(tx) {
               function deleteRecord(id) {
                 db.transaction(function(tx) {
                   tx.executeSql("DELETE FROM Table1Test WHERE id=?", [id],
-                      function(tx, result) { showRecords() }, 
+                      function(tx, result) { showRecords() },
                       onError);
                 });
               }
@@ -286,7 +289,7 @@ db.<b>transaction</b>(function(tx) {
               function dropTable() {
                 db.transaction(function(tx) {
                   tx.executeSql("DROP TABLE Table1Test", [],
-                      function(tx) { showRecords() }, 
+                      function(tx) { showRecords() },
                       onError);
                 });
               }
@@ -615,7 +618,7 @@ NETWORK:
                       }, function(error) { alert(error) });
 
                 }, false);
-                
+
               document.querySelector('#perm-request').addEventListener(
                 'click', function() {
                   webkitStorageInfo.requestQuota(
@@ -857,7 +860,7 @@ socket.<b>onclose</b> = function(event) { alert('closed'); }
           <section>
 <pre>if (window.<b>webkitNotifications</b>.<b>checkPermission</b>() == 0) {
   // you can pass any url as a parameter
-  window.<b>webkitNotifications</b>.<b>createNotification</b>(tweet.picture, tweet.title, 
+  window.<b>webkitNotifications</b>.<b>createNotification</b>(tweet.picture, tweet.title,
       tweet.text).<b>show</b>();
 } else {
   window.<b>webkitNotifications</b>.<b>requestPermission</b>();
@@ -1444,8 +1447,8 @@ Goal is: <progress value="75" max="100">3/4 complete</progress>
           <header><span class="html">HTML</span> <h1>ARIA attributes</h1></header>
           <section>
             <pre>&lt;ul id="tree1"
-      <b>role</b>="<b>tree</b>" 
-      tabindex="0" 
+      <b>role</b>="<b>tree</b>"
+      tabindex="0"
       <b>aria-labelledby</b>="label_1">
   &lt;li <b>role</b>="<b>treeitem</b>" tabindex="-1" <b>aria-expanded</b>="true">Fruits&lt;/li>
   &lt;li <b>role</b>="<b>group</b>">
@@ -1511,7 +1514,7 @@ Goal is: <progress value="75" max="100">3/4 complete</progress>
               width: 90%;
               -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 4px 6px;
             }
-          </style>          
+          </style>
           <section>
             <div>
 <pre>type="<em>text</em>"</pre>
@@ -1652,7 +1655,7 @@ document.getElementById("video").<b>play</b>();
             }
           </script>
         </div>
-        
+
         <div class="slide multimedia" id="video-track">
           <style>
             #video-column {
@@ -1675,7 +1678,7 @@ document.getElementById("video").<b>play</b>();
 &lt;<b>video</b> width="390" id="clip" <b>controls</b>>
   &lt;<b>source</b> src="Google_Developer_Stories.webm"
           type='video/webm; codecs="vp8, vorbis"' />
-  &lt;<b>track</b> label="English subtitles" kind="subtitles" srclang="en" 
+  &lt;<b>track</b> label="English subtitles" kind="subtitles" srclang="en"
          src="<em>video-subtitles-en.vtt</em>" default />
 &lt;/<b>video</b>>
 </pre>
@@ -1720,55 +1723,55 @@ But it cant happen without you and your ideas
 We want to know you better
 
 8
-00:00:18.700 --> 00:00:21.000 
+00:00:18.700 --> 00:00:21.000
 so we created a new place just for that
 
 9
-00:00:21.000 --> 00:00:22.000 
+00:00:21.000 --> 00:00:22.000
 to hear from <u>you</u>
 
 10
-00:00:22.500 --> 00:00:25.000 
+00:00:22.500 --> 00:00:25.000
 We want to hear what inspires you as a developer
 
 11
-00:00:25.500 --> 00:00:27.000 
+00:00:25.500 --> 00:00:27.000
 and how we can help.
 
 12
-00:00:27.000 --> 00:00:30.800 
+00:00:27.000 --> 00:00:30.800
 Here you can record a video, share stories with us and more
 
 13
-00:00:31.000 --> 00:00:34.000 
+00:00:31.000 --> 00:00:34.000
 Let us know what being a Google developer means to you
 
 14
-00:00:34.000 --> 00:00:38.200 
+00:00:34.000 --> 00:00:38.200
 and you can talk to us in person at Google Developer events all over the world.
 
 15
-00:00:38.500 --> 00:00:41.000 
+00:00:38.500 --> 00:00:41.000
 so we can learn how to support you better.
 
 16
-00:00:41.000 --> 00:00:44.600 
+00:00:41.000 --> 00:00:44.600
 Oh, btw, we also started rolling a new site for Google Developers
 
 17
-00:00:44.700 --> 00:00:49.400 
+00:00:44.700 --> 00:00:49.400
 Not just code but community, news, tools and other resources
 
 18
-00:00:49.400 --> 00:00:51.000 
+00:00:49.400 --> 00:00:51.000
 and cake
 
 19
-00:00:51.200 --> 00:00:54.000 
+00:00:51.200 --> 00:00:54.000
 Like any open source project it's a work in progress
 
 20
-00:00:54.100 --> 00:00:57.000 
+00:00:54.100 --> 00:00:57.000
 with your help it can be great
 
 21
@@ -1776,7 +1779,7 @@ with your help it can be great
 developers.google.com/stories
 
 21
-00:01:00.500 --> 00:01:04.000 
+00:01:00.500 --> 00:01:04.000
 Change is important to the Web. Help us keep changing it together
             </textarea>
           </section>
@@ -1886,7 +1889,7 @@ pre<b>:-webkit-full-screen</b> {
           if (document.webkitIsFullScreen) {
             document.cancelFullScreen();
           } else {
-            doFullScreen(elem);            
+            doFullScreen(elem);
           }
         }
 
@@ -1895,7 +1898,7 @@ pre<b>:-webkit-full-screen</b> {
       </script>
     </div>
 
-        
+
         <div class="slide effects" id="canvas-2d">
           <header><span class="html">HTML</span> <span class="js">JS</span> <h1>Canvas 2D</h1></header>
           <section>
@@ -2013,7 +2016,7 @@ pre<b>:-webkit-full-screen</b> {
             }, false);
             svg.appendChild(circle);
             container.appendChild(svg);
-            
+
             function changeSvgCircleRadius() {
               var r = document.getElementById('svg-circle-r').value;
               document.getElementById('svg-circle-r-value').innerHTML = r;
@@ -2054,40 +2057,40 @@ pre<b>:-webkit-full-screen</b> {
   background: white;
 }
 </pre>
-            <div class="example"> 
-              <div class="row">Row 1</div> 
-              <div class="row">Row 2</div> 
-              <div class="row">Row 3</div> 
-              <div class="row">Row 4</div> 
-            </div>  
-            <h2>Image-like display</h2> 
+            <div class="example">
+              <div class="row">Row 1</div>
+              <div class="row">Row 2</div>
+              <div class="row">Row 3</div>
+              <div class="row">Row 4</div>
+            </div>
+            <h2>Image-like display</h2>
             <pre>div {
   display: <b>inline-block</b>;
 }
-</pre> 
-          </section> 
+</pre>
+          </section>
 
-          <section class="right"> 
-            <h2>Specific attributes</h2> 
+          <section class="right">
+            <h2>Specific attributes</h2>
             <pre>input<b>[type="text"]</b> {
   background: #eee;
-}</pre>          
+}</pre>
 
-            <h2>Negation</h2> 
+            <h2>Negation</h2>
             <pre><b>:not</b>(.box) {
-  color: #00c; 
-}            
+  color: #00c;
+}
 <b>:not</b>(span) {
-  display: block; 
-}  
-</pre> 
+  display: block;
+}
+</pre>
 
-            <h2>More specific targetting</h2> 
+            <h2>More specific targetting</h2>
             <pre>h2:<b>first-child</b> { ... }
 
-div.text <b>&gt;</b> div { ... } 
-h2 <b>+</b> header { ... } 
-</pre>            
+div.text <b>&gt;</b> div { ... }
+h2 <b>+</b> header { ... }
+</pre>
           </section>
           <footer><a href="http://www.w3.org/TR/CSS2/selector.html#pattern-matching">CSS2 selectors</a> and <a href="http://www.w3.org/TR/css3-selectors/#selectors">CSS3 selectors</a> introduced some of the ones demonstrated here.</footer>
         </div>
@@ -2161,34 +2164,34 @@ header {
 
             <div id="columns-no-example" class="example">
               <p>
-                In March 1936, an unusual confluence of forces occurred in 
+                In March 1936, an unusual confluence of forces occurred in
                 Santa Clara County.
               </p>
               <p>
-                A long cold winter delayed the blossoming of the millions of 
-                cherry, apricot, peach, and prune plum trees covering hundreds 
-                of square miles of the Valley floor. Then, unlike many years, 
-                the rains that followed were light and too early to knock 
+                A long cold winter delayed the blossoming of the millions of
+                cherry, apricot, peach, and prune plum trees covering hundreds
+                of square miles of the Valley floor. Then, unlike many years,
+                the rains that followed were light and too early to knock
                 the blossoms from their branches.
               </p>
               <p>
-                Instead, by the billions, they all burst open at once. 
-                Seemingly overnight, the ocean of green that was the Valley 
-                turned into a low, soft, dizzyingly perfumed cloud of pink 
-                and white. Uncounted bees and yellow jackets, newly born, 
-                raced out of their hives and holes, overwhelmed by this 
+                Instead, by the billions, they all burst open at once.
+                Seemingly overnight, the ocean of green that was the Valley
+                turned into a low, soft, dizzyingly perfumed cloud of pink
+                and white. Uncounted bees and yellow jackets, newly born,
+                raced out of their hives and holes, overwhelmed by this
                 impossible banquet.
               </p>
               <p>
                 Then came the wind.
               </p>
               <p>
-                It roared off the Pacific Ocean, through the nearly 
-                uninhabited passes of the Santa Cruz Mountains and then, 
-                flattening out, poured down into the great alluvial plains 
-                of the Valley. A tidal bore of warm air, it tore along the 
-                columns of trees, ripped the blossoms apart and carried them 
-                off in a fluttering flood of petals like foam rolling up a 
+                It roared off the Pacific Ocean, through the nearly
+                uninhabited passes of the Santa Cruz Mountains and then,
+                flattening out, poured down into the great alluvial plains
+                of the Valley. A tidal bore of warm air, it tore along the
+                columns of trees, ripped the blossoms apart and carried them
+                off in a fluttering flood of petals like foam rolling up a
                 beach.
               </p>
               <p>
@@ -2338,7 +2341,7 @@ header {
                  }
                }
             </script>
-          </section> 
+          </section>
         </div>
 
 
@@ -2360,7 +2363,7 @@ header {
               function changeGradients() {
                 var size = document.getElementById('gradients-radial').value;
 
-                document.getElementById('gradients-radial-example').style.backgroundImage = 
+                document.getElementById('gradients-radial-example').style.backgroundImage =
                     '-webkit-radial-gradient(center, circle cover, red, #000 ' + size + '%)';
 
                 document.getElementById('gradients-radial-value').textContent = size;
@@ -2372,13 +2375,13 @@ header {
         <div class="slide styling" id="css-shadow">
           <header><span class="css">CSS</span> <h1>Shadows</h1></header>
           <section>
-<pre class="two-column"><b>text-shadow</b>: 
-  rgba(64, 64, 64, 0.5) 
+<pre class="two-column"><b>text-shadow</b>:
+  rgba(64, 64, 64, 0.5)
   <span id="shadows-text-x-value">0</span>px <input id="shadows-text-x" type="range" min="-9" max="9" value="0" onchange="changeShadow(event)">
   <span id="shadows-text-y-value">0</span>px <input id="shadows-text-y" type="range" min="-9" max="9" value="0" onchange="changeShadow(event)">
   <span id="shadows-text-size-value">0</span>px; <input id="shadows-text-size" type="range" min="0" max="9" value="0" onchange="changeShadow(event)">
-<br><b>box-shadow</b>: 
-  rgba(0, 0, 128, 0.25) 
+<br><b>box-shadow</b>:
+  rgba(0, 0, 128, 0.25)
   <span id="shadows-box-x-value">0</span>px <input id="shadows-box-x" type="range" min="-9" max="9" value="0" onchange="changeShadow(event)">
   <span id="shadows-box-y-value">0</span>px <input id="shadows-box-y" type="range" min="-9" max="9" value="0" onchange="changeShadow(event)">
   <span id="shadows-box-size-value">0</span>px; <input id="shadows-box-size" type="range" min="0" max="9" value="0" onchange="changeShadow(event)">
@@ -2423,7 +2426,7 @@ header {
           <section>
             <pre><b>text-shadow</b>: rgba(0, 0, 0, 0.5) 0 <span id="web20-shadow-value-1">0</span>px <span id="web20-shadow-value-2">0</span>px; <input id="web20-shadow" type="range" min="0" max="9" value="0" onchange="changeWeb20(event)">
 
-background: 
+background:
   -<b>webkit-gradient</b>(linear, left top, left bottom, <input id="web20-gradient" type="range" min="0" max="100" value="0" onchange="changeWeb20(event)">
                    from(rgba(200, 200, 240, <span id="web20-gradient-value-1">0</span>)), to(rgba(255, 255, 255, <span id="web20-gradient-value-2">0</span>)));
 
@@ -2478,7 +2481,7 @@ background:
             <h2>Background sizing</h2>
             <pre>#logo {
   background: url(logo.gif) center center no-repeat;
-  <b>background-size: 
+  <b>background-size:
     <select onchange="changeBackgroundSize(event)">
       <option>auto</option>
       <option>contain</option>
@@ -2491,7 +2494,7 @@ background:
             <p id="resize-message">Resize me! »</p>
             <h2>Multiple backgrounds</h2>
             <pre>div {
-  background: url(src/zippy-plus.png) 10px center no-repeat, 
+  background: url(src/zippy-plus.png) 10px center no-repeat,
               url(src/gray_lines_bg.png) 0 center repeat-x;
 }
             </pre>
@@ -2572,9 +2575,9 @@ border-width: <span id="border_width_value">10</span>px;  <input id="border_widt
           <section>
 <pre>.box {
   display: -webkit-<b>box</b>;
-  -webkit-<b>box-orient</b>: <select onchange='changeBoxOrient(event)'> 
-      <option>horizontal</option> 
-      <option>vertical</option> 
+  -webkit-<b>box-orient</b>: <select onchange='changeBoxOrient(event)'>
+      <option>horizontal</option>
+      <option>vertical</option>
     </select>;
 }
 .box .one, .box .two {
@@ -2583,68 +2586,68 @@ border-width: <span id="border_width_value">10</span>px;  <input id="border_widt
 .box .three {
   -webkit-<b>box-flex</b>: 3;
 }
-</pre> 
+</pre>
 
           <div id="box-orient-example" class="example">
             <div>
               Box one
-            </div> 
+            </div>
             <div>
               Box two
-            </div> 
+            </div>
             <div>
               Box three
-            </div> 
+            </div>
           </div>
 
-          <script defer> 
+          <script defer>
             function changeBoxOrient(event) {
               var el = document.getElementById('box-orient-example');
               el.style.webkitBoxOrient = event.target.value;
-              el.style.MozBoxOrient = event.target.value; 
+              el.style.MozBoxOrient = event.target.value;
             }
-          </script> 
-          </section> 
+          </script>
+          </section>
         </div>
 
 
         <div class="slide styling" id="flex-box-2">
           <header><span class="css">CSS</span> <h1>Flexible Box Model</h1></header>
-          <section> 
+          <section>
 <pre>.box {
     display: -webkit-<b>box</b>;
-    -webkit-<b>box-pack</b>: <select onchange='changeBoxPack(event)'> 
-        <option>center</option> 
-        <option>start</option> 
-        <option>end</option> 
+    -webkit-<b>box-pack</b>: <select onchange='changeBoxPack(event)'>
+        <option>center</option>
+        <option>start</option>
+        <option>end</option>
       </select>;
-    -webkit-<b>box-align</b>: <select onchange='changeBoxAlign(event)'> 
-        <option>center</option> 
-        <option>start</option> 
-        <option>end</option> 
-        <option>stretch</option> 
+    -webkit-<b>box-align</b>: <select onchange='changeBoxAlign(event)'>
+        <option>center</option>
+        <option>start</option>
+        <option>end</option>
+        <option>stretch</option>
       </select>;
   }
-</pre> 
+</pre>
 
             <div id="box-orient-example-2" class="example">
-              <textarea>change the dropdowns and resize this &lt;textarea></textarea> 
+              <textarea>change the dropdowns and resize this &lt;textarea></textarea>
             </div>
 
-            <script defer> 
+            <script defer>
               function changeBoxPack(event) {
                 var el = document.getElementById('box-orient-example-2');
                 el.style.webkitBoxPack = event.target.value;
-                el.style.MozBoxPack = event.target.value; 
+                el.style.MozBoxPack = event.target.value;
               }
               function changeBoxAlign(event) {
                 var el = document.getElementById('box-orient-example-2');
                 el.style.webkitBoxAlign = event.target.value;
-                el.style.MozBoxAlign = event.target.value; 
+                el.style.MozBoxAlign = event.target.value;
               }
-            </script> 
+            </script>
 
-          </section> 
+          </section>
         </div>
 
 
@@ -2966,9 +2969,9 @@ window.addEventListener('<em>popstate</em>', function(event) {
 
     </div> <!-- slides -->
     </div>
-    
+
     <!--[if lt IE 9]>
-    <script 
+    <script
       src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">
     </script>
     <script>CFInstall.check({ mode: "overlay" });</script>

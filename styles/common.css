@@ -974,3 +974,15 @@ div#wrapping {
 .transitions div.right {
   margin-left: 780px;
 }
+
+
+div[update]{
+ background: rgba(255, 255, 222, 0.47);
+width: 690px;
+margin: 0 auto;
+line-height: 1.6;
+padding: 10px;
+border-radius: 10px;
+border: 2px solid rgb(249, 249, 249);
+
+}
